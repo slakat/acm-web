@@ -1,0 +1,43 @@
+<div class=''>
+  <div class="container-fluid">
+    <div class=" col-xs-12">
+      <h1>Eventos</h1>
+
+      <div id="noticias">
+
+		<% @events.first(5).each do |n| %>
+			<div class="noticia row <%= old_active(n['start_time'].to_datetime) %>" >
+				<div class="col-md-3">
+				<%imageurl= n['cover']['source'] ? n['cover']['source'] : 'missing_image.png' %>
+				<%=image_tag(imageurl)%>
+				</div>
+				<div class="col-md-9">
+					<div class="meta">
+					  <div class="nature">
+						<span>Estado:</span>
+						<%= state_event(n['start_time'].to_datetime) %>
+					  </div>
+					  <div class="time">
+					  	<span>Fecha de Evento: </span>
+					  	<%= to_pretty(n['start_time'].to_datetime)%>
+					  </div>
+					</div>
+						
+					<div class="text">
+						<%= link_to "https://www.facebook.com/events/#{n['id']}",target: 'blank' do %>
+						<%= n['description']%>
+						<%end%>
+					</div>
+					<%= n['link'] ? (link_to "Ver Original", n['link'], class: "more", target: 'blank' ): '' %>
+					
+					<%=link_to "Comenta","https://www.facebook.com/1545470725714675/posts/#{n['id']}", target: 'blank'%>
+				</div>
+			</div>
+
+		<%end%>
+
+	</div>
+
+    </div>
+  </div>
+</div>

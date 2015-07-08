@@ -1,0 +1,73 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#noticias{
+	width: 100%;
+
+	.noticia{
+		padding: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #eee;
+		text-align: justify;
+		font-size: 16px;
+			.meta{
+				color: #6E6C6C;
+				font-weight: lighter;
+				font-size: 12px;
+
+				span.soon{font-weight: bold; color: yellow;}
+				span.old{ color: red; }
+
+				.nature{
+					float:left;
+					border-right: 1px solid #6E6C6C;;
+					padding-right: 5px;
+					margin-right: 10px;
+				}
+			}
+			img{
+			width: 100px;
+			height: 100px;
+			border-radius: 200px;
+			}
+
+		.text{
+			margin-top: 5px;
+			padding-bottom: 3px;
+			margin-bottom: 10px;
+
+			a{
+				color: black;
+				background: none;
+				padding: 5px;
+			}
+
+			a:hover{
+				background: #1d9d74;
+				color: #fff;
+			}
+		}
+		a{
+		  color: #ffffff;
+		  background-color: #1d9d74;
+		  border-color: #198764;
+		  vertical-align: center;
+		  text-align: center;
+		  padding: 5px;
+		  text-decoration: none;
+		}
+
+		a.more{
+			background-color: #114683; 
+		}
+	}
+
+	.event-old{
+		border-left: 10px solid red;
+	}
+
+	.event-soon{
+		border-left: 10px solid yellow;
+	}
+}

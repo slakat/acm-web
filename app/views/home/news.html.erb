@@ -1,0 +1,44 @@
+<div class=''>
+  <div class="container-fluid">
+    <div class=" col-xs-12">
+      <h1>Últimas Noticias</h1>
+
+      <div id="noticias">
+
+		<% @posts.first(5).each do |n| %>
+			<div class="noticia row" >
+		<%r = n['id'].split('_') %>
+				<div class="col-md-3">
+				<%imageurl= n['picture'] ? n['picture'] : 'missing_image.png' %>
+				<%=image_tag(imageurl)%>
+				</div>
+				<div class="col-md-9">
+					<div class="meta">
+					  <div class="nature">
+						<span>Tipo: </span>
+						<%= n['type']%>
+					  </div>
+					  <div class="time">
+					  	<span>Publicado </span>
+					  	<%= to_pretty(n['created_time'].to_datetime)%>
+					  </div>
+					</div>
+						
+					<div class="text">
+						<%= link_to "https://www.facebook.com/1545470725714675/posts/#{r[1]}",target: 'blank' do %>
+						<%= n['message']%>
+						<%end%>
+					</div>
+					<%= n['link'] ? (link_to "Ver Original", n['link'], class: "more", target: 'blank' ): '' %>
+					
+					<%=link_to "Comenta","https://www.facebook.com/1545470725714675/posts/#{r[1]}", target: 'blank'%>
+				</div>
+			</div>
+
+		<%end%>
+
+	</div>
+
+    </div>
+  </div>
+</div>
