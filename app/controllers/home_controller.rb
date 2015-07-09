@@ -1,12 +1,12 @@
+require 'net/http'
+
 class HomeController < ApplicationController
   before_filter :fb_connection, :only => [:events,:news]
-  require 'net/http'
 
   def index
   end
 
   def events
-
     #https://graph.facebook.com/acm.puc/events/?fields=id,name,description,timezone,start_time,cover&access_token=&since=1356998400&until=1483228800
     @events = @graph.get_connection('acm.puc', 'events', {since: '1356998400',until:'1483228800', limit: 5, fields: ['name', 'id', 'description', 'timezone','start_time','cover']})
   end
