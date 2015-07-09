@@ -1,0 +1,24 @@
+div
+  .container-fluid
+    .col-xs-12
+      h1 Últimas Noticias
+      #noticias
+        - @posts.first(5).each do |n|
+          .noticia.row
+            - r = n['id'].split('_')
+            .col-md-3
+              - imageurl= n['picture'] ? n['picture'] : 'missing_image.png'
+              = image_tag(imageurl)
+            .col-md-9
+              .meta
+                .nature
+                  span Tipo:
+                  = n['type']
+                .time
+                  span Publicado
+                  = to_pretty(n['created_time'].to_datetime)
+              .text
+                = link_to "https://www.facebook.com/1545470725714675/posts/#{r[1]}",target: 'blank' do
+                  = n['message']
+              = n['link'] ? (link_to "Ver Original", n['link'], class: "more", target: 'blank' ): ''
+              = link_to "Comenta","https://www.facebook.com/1545470725714675/posts/#{r[1]}", target: 'blank'

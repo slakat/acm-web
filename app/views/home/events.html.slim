@@ -1,0 +1,23 @@
+div
+  .container-fluid
+    .col-xs-12
+      h1 Eventos
+      #noticias
+        - @events.first(5).each do |n|
+          div class=("noticia row #{old_active(n['start_time'].to_datetime)}") 
+            .col-md-3
+              - imageurl= n['cover']['source'] ? n['cover']['source'] : 'missing_image.png'
+              = image_tag(imageurl)
+            .col-md-9
+              .meta
+                .nature
+                  span Estado:
+                  = state_event(n['start_time'].to_datetime)
+                .time
+                  span Fecha de Evento:
+                  = to_pretty(n['start_time'].to_datetime)
+              .text
+                = link_to "https://www.facebook.com/events/#{n['id']}",target: 'blank' do
+                  = n['description']
+              = n['link'] ? (link_to "Ver Original", n['link'], class: "more", target: 'blank' ): ''
+              = link_to "Comenta","https://www.facebook.com/1545470725714675/posts/#{n['id']}", target: 'blank'
