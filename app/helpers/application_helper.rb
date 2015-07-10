@@ -33,4 +33,8 @@ module ApplicationHelper
     else  'event-old'
     end
   end
+
+  def round_image *args
+    "<div class=\"round-img\">#{image_tag(*args)}</div>".html_safe
+  end
 end

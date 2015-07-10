@@ -8,7 +8,7 @@ div
             - r = n['id'].split('_')
             .col-md-3
               - imageurl= n['picture'] ? n['picture'] : 'missing_image.png'
-              = image_tag(imageurl)
+              = round_image(imageurl)
             .col-md-9
               .meta
                 .nature

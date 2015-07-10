@@ -6,8 +6,9 @@ div
         - @events.first(5).each do |n|
           div class=("noticia row #{old_active(n['start_time'].to_datetime)}") 
             .col-md-3
-              - imageurl= n['cover']['source'] ? n['cover']['source'] : 'missing_image.png'
-              = image_tag(imageurl)
+              .round-img
+                - imageurl= n['cover']['source'] ? n['cover']['source'] : 'missing_image.png'
+                = round_image(imageurl)
             .col-md-9
               .meta
                 .nature
