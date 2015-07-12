@@ -3790,6 +3790,7 @@ a.btn:hover{
 #description p{
   margin-top: 20px;
   text-align: justify;
+    padding: 5%;
     font-family: Lato;
 }
 

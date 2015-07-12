@@ -16,4 +16,5 @@
 //= require nprogress
 //= require nprogress-turbolinks
 //= require nprogress-ajax
+//= require collapse
 //= require_tree .
